@@ -1,0 +1,112 @@
+<!-- Include jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Include logout JavaScript -->
+<script src="logout.js"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add your CSS links and stylesheets here -->
+</head>
+<style>
+    *{
+        padding:0;
+        margin : 0;
+        box-sizing: border-box;
+    }
+    body{
+        font-family: "poppins", sans-serif;
+    }
+    a{
+        text-decoration: none;
+    }
+    li {
+        list-style : none ;
+
+    }
+ button{
+    border: none;
+    background: none;
+    outline: none;
+    transition: 0.5s;
+    cursor: pointer;
+ }
+ .logout{
+    padding: 15px 40px;
+    background: rgb(2, 2, 32);
+    font-weight: bold;
+    color: aliceblue;
+ }
+header{
+    height: 10vh;
+    line-height: 10vh;
+    padding: 0 20px;
+}
+header ul{
+    display: inline-block;
+}
+header ul li{
+    display: inline-block;
+    text-decoration: uppercase;
+}
+header ul li a{
+    color: black;
+    margin : 0 10px;
+    transition: 0.5s;
+}
+header ul li a:hover{
+    color: rgb(31, 25, 122);
+}
+</style>
+<body>
+    <header>
+
+   
+    <!-- Navigation Menu -->
+    <div class="navlinks">
+        <ul id="menulist">
+            <li>Welcome, {{ username }}</li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Accommodations</a></li>
+            <li><a href="#">Destinations</a></li>
+            <li><a href="#">Activities</a></li>
+            <li><a href="#">Contact</a></li>
+            <!-- Add the logout link here -->
+            <li>
+                <form id="logout-form" action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button class="logout" type="submit">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</header>
+    <!-- Search Bar or Booking Widget -->
+    <section class="search-section">
+        <h1>Find Your Perfect Stay</h1>
+        <form>
+            <input type="text" placeholder="Enter destination">
+            <input type="date" placeholder="Check-in">
+            <input type="date" placeholder="Check-out">
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+    <!-- Featured Listings or Deals -->
+    <section class="featured-listings">
+        <h2>Featured Listings</h2>
+        <!-- Display featured listings or deals here -->
+    </section>
+
+    <!-- Call-to-Action Buttons -->
+    <section class="cta-buttons">
+        <button>Explore Deals</button>
+        <button>Sign Up for Newsletter</button>
+    </section>
+</body>
+</html>
